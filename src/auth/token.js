@@ -9,7 +9,7 @@ export const JWTAuthMiddleware=async(req,res,next)=>{
     }else{
         //* IF YES, EXTRACTS TOKEN FROM THE HEADER
         try {
-            const token=req.headers.authorization.replace('Bearer','')
+            const token=req.headers.authorization.replace('Bearer ','')
             //* VERIFY TOKEN
             const decodedToken=await verifyJWT(token)
             //* FIND USER IN DB

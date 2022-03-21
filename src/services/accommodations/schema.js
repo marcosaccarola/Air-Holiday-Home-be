@@ -8,7 +8,7 @@ const accommodationSchema=new Schema(
         description:{type:String,required:true},
         maxGuestsNumber:{type:String,required:true},
         location:{type:String,required:true},
-        host:{type:Schema.objectId ,ref:'user'},
+        host:{type:Schema.ObjectId ,ref:'user'}
     },
     {timestamps:true}
 )
@@ -20,6 +20,7 @@ accommodationSchema.methods.toJSON=function(){
     delete accommodationObject.__v
     delete accommodationObject.createdAt
     delete accommodationObject.updatedAt
+    return accommodationObject
 }
 
 export default model('accommodation',accommodationSchema)

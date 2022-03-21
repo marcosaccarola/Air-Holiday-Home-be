@@ -43,6 +43,7 @@ userSchema.methods.toJSON=function(){
     delete userObject.__v
     delete userObject.createdAt
     delete userObject.updatedAt
+    return userObject
 }
 
 export default model('user',userSchema)

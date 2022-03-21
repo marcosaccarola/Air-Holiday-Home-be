@@ -5,8 +5,9 @@ export const JWTAuthenticate=async(user)=>{
     const accessToken=await generateJWT({_id:user._id})
     return accessToken
 }
-const generateJWT=(payload)=>{
-    new Promise((resolve,reject)=>{
+//! NO CURLY BRACKETS HERE !!!
+const generateJWT=(payload)=>
+    new Promise((resolve,reject)=>
         jwt.sign(
             payload,
             process.env.JWT_SECRET,
@@ -16,12 +17,13 @@ const generateJWT=(payload)=>{
                 else resolve(token)
             }
         )
-    })
-}
+    )
+
 
 //* VERIFY TOKEN
-export const verifyJWT=(token)=>{
-    new Promise((resolve,reject)=>{
+//! NO CURLY BRACKETS HERE !!!
+export const verifyJWT=(token)=>
+    new Promise((resolve,reject)=>
         jwt.verify(
             token,
             process.env.JWT_SECRET,
@@ -30,5 +32,4 @@ export const verifyJWT=(token)=>{
                 else resolve(decodedToken)
             }
         )
-    })
-}
+    )
