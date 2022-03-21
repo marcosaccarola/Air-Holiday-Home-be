@@ -6,7 +6,7 @@ const accommodationSchema=new Schema(
     {
         name:{type:String,required:true},
         description:{type:String,required:true},
-        maxGuestsNumber:{type:String,required:true},
+        maxGuestsNumber:{type:Number,required:true},
         location:{type:String,required:true},
         host:{type:Schema.ObjectId ,ref:'user'}
     },

@@ -25,11 +25,3 @@ export const JWTAuthMiddleware=async(req,res,next)=>{
         }
     }
 }
-
-export const hostMiddleware=(req,res,next)=>{
-    if(req.user.role==='host'){
-        next()
-    }else{
-        next(createHttpError(403,'Allowed only to hosts.'))
-    }
-}

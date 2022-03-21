@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import listEndpoints from 'express-list-endpoints'
 import userRouter from './services/users/index.js'
+import accommodationRouter from './services/accommodations/index.js'
 
 const server=express()
 const port=process.env.PORT||3001
@@ -13,6 +14,7 @@ server.use(express.json())
 
 // ****************************** ROUTES
 server.use('/user',userRouter)
+server.use('/accommodation',accommodationRouter)
 
 // ****************************** CONNECTION
 mongoose.connect(process.env.MONGO_CONNECTION)

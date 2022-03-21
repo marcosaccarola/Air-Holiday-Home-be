@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import createHttpError from 'http-errors'
 
 //* GIVEN THE USER ID, GIVES BACK THE ACCESS TOKEN
 export const JWTAuthenticate=async(user)=>{
@@ -33,3 +34,13 @@ export const verifyJWT=(token)=>
             }
         )
     )
+
+    
+//* VERITY IF HOST
+export const hostMiddleware=(req,res,next)=>{
+    if(req.user.role==='host'){
+        next()
+    }else{
+        next(createHttpError(403,'Allowed only to hosts.'))
+    }
+}
