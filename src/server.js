@@ -19,6 +19,13 @@ server.use(cors())
 server.use(express.json())
 
 // ****************************** ROUTES
+server.get('/',async(req,res,next)=>{
+    try {
+        res.send('Ciao')
+    } catch (error) {
+        next(error)
+    }
+})
 server.use('/user',userRouter)
 server.use('/accommodation',accommodationRouter)
 
