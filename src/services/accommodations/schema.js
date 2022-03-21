@@ -13,4 +13,13 @@ const accommodationSchema=new Schema(
     {timestamps:true}
 )
 
+//* HIDDING SOME OBJECT VALUES
+accommodationSchema.methods.toJSON=function(){
+    const accommodationDocument=this
+    const accommodationObject=accommodationDocument.toObject()
+    delete accommodationObject.__v
+    delete accommodationObject.createdAt
+    delete accommodationObject.updatedAt
+}
+
 export default model('accommodation',accommodationSchema)
