@@ -21,7 +21,7 @@ server.use(express.json())
 // ****************************** ROUTES
 server.get('/',async(req,res,next)=>{
     try {
-        res.send('Ciao')
+        res.send('Server is running.')
     } catch (error) {
         next(error)
     }
